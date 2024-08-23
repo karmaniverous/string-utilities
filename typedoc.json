@@ -11,7 +11,6 @@
   "parametersFormat": "table",
   "plugin": ["typedoc-plugin-markdown"],
   "propertiesFormat": "table",
-  "publicPath": "https://github.com/karmaniverous/npm-package-template-ts",
   "readme": "none",
   "typeDeclarationFormat": "table",
   "useCodeBlocks": true

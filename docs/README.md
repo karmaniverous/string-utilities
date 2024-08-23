@@ -29,7 +29,7 @@ The output string.
 
 #### Defined in
 
-n2e.ts:8
+[n2e.ts:8](https://github.com/karmaniverous/string-utilities/blob/main/src/n2e.ts#L8)
 
 ***
 
@@ -55,7 +55,7 @@ The normalized string or undefined if not a string.
 
 #### Defined in
 
-normstr.ts:7
+[normstr.ts:7](https://github.com/karmaniverous/string-utilities/blob/main/src/normstr.ts#L7)
 
 ***
 
@@ -82,7 +82,7 @@ The output string.
 
 #### Defined in
 
-sn2e.ts:10
+[sn2e.ts:10](https://github.com/karmaniverous/string-utilities/blob/main/src/sn2e.ts#L10)
 
 ***
 
@@ -109,7 +109,7 @@ The output string.
 
 #### Defined in
 
-sn2n.ts:10
+[sn2n.ts:10](https://github.com/karmaniverous/string-utilities/blob/main/src/sn2n.ts#L10)
 
 ***
 
@@ -136,4 +136,4 @@ The output string.
 
 #### Defined in
 
-sn2u.ts:10
+[sn2u.ts:10](https://github.com/karmaniverous/string-utilities/blob/main/src/sn2u.ts#L10)
