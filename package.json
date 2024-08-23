@@ -1,17 +1,10 @@
 {
   "author": "Jason Williscroft",
-  "bin": {
-    "mycli": "./dist/cli/mycli/index.js"
-  },
   "bugs": {
-    "url": "https://github.com/karmaniverous/npm-package-template-ts/issues"
+    "url": "https://github.com/karmaniverous/string-utilities/issues"
   },
-  "dependencies": {
-    "commander": "^12.1.0"
-  },
-  "description": "A feature-rich NPM package template for TypeScript projects.",
+  "description": "Handy tagged templates & other string utilities.",
   "devDependencies": {
-    "@commander-js/extra-typings": "^12.1.0",
     "@eslint/js": "^9.9.0",
     "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-commonjs": "^26.0.1",
@@ -23,7 +16,6 @@
     "@types/eslint__js": "^8.42.3",
     "@types/eslint-config-prettier": "^6.11.3",
     "@types/eslint-plugin-mocha": "^10.4.0",
-    "@types/fs-extra": "^11.0.4",
     "@types/mocha": "^10.0.7",
     "@types/node": "^20.16.1",
     "auto-changelog": "^2.4.0",
@@ -34,7 +26,6 @@
     "eslint-plugin-mocha": "^10.5.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-tsdoc": "^0.3.0",
-    "fs-extra": "^11.2.0",
     "jsdom-global": "^3.0.2",
     "knip": "^5.27.2",
     "lefthook": "^1.7.14",
@@ -68,7 +59,7 @@
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/karmaniverous/npm-package-template-ts#readme",
+  "homepage": "https://github.com/karmaniverous/string-utilities#readme",
   "keywords": [
     "chai",
     "eslint",
@@ -84,7 +75,7 @@
   "license": "BSD-3-Clause",
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",
-  "name": "@karmaniverous/npm-package-template-ts",
+  "name": "@karmaniverous/string-utilities",
   "publishConfig": {
     "access": "public"
   },
@@ -116,7 +107,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/karmaniverous/npm-package-template-ts.git"
+    "url": "git+https://github.com/karmaniverous/string-utilities.git"
   },
   "scripts": {
     "build": "rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",

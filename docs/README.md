@@ -1,42 +1,139 @@
-**@karmaniverous/npm-package-template-ts** • **Docs**
+**@karmaniverous/string-utilities** • **Docs**
 
 ***
 
-# @karmaniverous/npm-package-template-ts
+# @karmaniverous/string-utilities
 
 ## Functions
 
-### foo()
+### n2e()
 
 ```ts
-function foo(target): string
+function n2e(strings, ...exp): string
 ```
 
-Foos your bar!
+Tagged template function Nil to Empty: replaces null or undefined expressions with empty strings.
 
 #### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `target` | `undefined` \| `string` | The target to foo. |
+| `strings` | `TemplateStringsArray` | The string literals. |
+| ...`exp` | (`undefined` \| `null` \| `string` \| `number`)[] | The expressions. |
 
 #### Returns
 
 `string`
 
-Your fooed bar.
-
-#### Remarks
-
-This function is documented according to the TSDoc spec. Linting support is
-built into this template. TSDoc is similar to JSDoc, but is way less verbose
-as it can take advantage of TypeScript's type system. It also has better
-support for documenting generics and other TypeScript-specific features.
-
-#### See
-
-[TSDoc](https://tsdoc.org/) for more info!
+The output string.
 
 #### Defined in
 
-[foo.ts:15](https://github.com/karmaniverous/npm-package-template-ts/blob/main/src/foo.ts#L15)
+n2e.ts:8
+
+***
+
+### normstr()
+
+```ts
+function normstr(str?): undefined | string
+```
+
+Normalize a string by converting diacriticals to base characters, removing non-word characters, and converting to lower case.
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `str`? | `string` | The string to normalize. |
+
+#### Returns
+
+`undefined` \| `string`
+
+The normalized string or undefined if not a string.
+
+#### Defined in
+
+normstr.ts:7
+
+***
+
+### sn2e()
+
+```ts
+function sn2e(strings, ...exp): string
+```
+
+Tagged template function Some Nil to Empty: returns empty string when any expression null or undefined.
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `strings` | `TemplateStringsArray` | The string literals. |
+| ...`exp` | (`undefined` \| `null` \| `string` \| `number`)[] | The expressions. |
+
+#### Returns
+
+`string`
+
+The output string.
+
+#### Defined in
+
+sn2e.ts:10
+
+***
+
+### sn2n()
+
+```ts
+function sn2n(strings, ...exp): null | string
+```
+
+Tagged template function Some Nil to Null: returns null when any expression null or undefined.
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `strings` | `TemplateStringsArray` | The string literals. |
+| ...`exp` | (`undefined` \| `null` \| `string` \| `number`)[] | The expressions. |
+
+#### Returns
+
+`null` \| `string`
+
+The output string.
+
+#### Defined in
+
+sn2n.ts:10
+
+***
+
+### sn2u()
+
+```ts
+function sn2u(strings, ...exp): undefined | string
+```
+
+Tagged template function Some Nil to Undefined: returns undefined when any expression null or undefined.
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `strings` | `TemplateStringsArray` | The string literals. |
+| ...`exp` | (`undefined` \| `null` \| `string` \| `number`)[] | The expressions. |
+
+#### Returns
+
+`undefined` \| `string`
+
+The output string.
+
+#### Defined in
+
+sn2u.ts:10
