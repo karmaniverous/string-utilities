@@ -8,7 +8,7 @@ import { Stringifiable } from '../types';
  *
  * @example
  * ```ts
- * const value = sn2d`string: ${'foo'} number: ${42} boolean: ${true} null: ${null} undefined: ${undefined}`;
+ * const value = n2d('default')`string: ${'foo'} number: ${42} boolean: ${true} null: ${null} undefined: ${undefined}`;
  * // value === 'string: foo number: 42 boolean: true null: default undefined: default'
  * ```
  *
