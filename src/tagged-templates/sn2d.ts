@@ -1,7 +1,7 @@
 import { isStringifiable, type Stringifiable } from '../types';
 
 /**
- * Tagged template meta-function _Some Non-stringifiable to Default:_ returns tagged template function that returns a default value when any expression has no `toString` property.
+ * Tagged template meta-function **Some Non-stringifiable to Default**: returns tagged template function that returns a default value when any expression has no `toString` property.
  *
  * @param defaultValue - The default value.
  * @returns Tagged template function that returns `default` when any expression has no `toString` property.

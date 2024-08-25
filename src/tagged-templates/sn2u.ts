@@ -1,7 +1,7 @@
 import { sn2d } from './sn2d';
 
 /**
- * Tagged template function _Some Non-stringifiable to Undefined:_ returns `undefined` when any expression has no `toString` property.
+ * Tagged template function **Some Non-stringifiable to Undefined**: returns `undefined` when any expression has no `toString` property.
  *
  * @param strings - The string literals.
  * @param exp - The expressions.
