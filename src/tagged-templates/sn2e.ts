@@ -6,6 +6,13 @@ import { sn2d } from './sn2d';
  * @param strings - The string literals.
  * @param exp - The expressions.
  * @returns The output string.
+ *
+ * @example
+ * ```ts
+ * const value = sn2d`string: ${'foo'} number: ${42} boolean: ${true} null: ${null} undefined: ${undefined}`;
+ * // value === ''
+ * ```
+ *
  * @category Tagged Templates
  */
 export const sn2e = (strings: TemplateStringsArray, ...exp: unknown[]) =>

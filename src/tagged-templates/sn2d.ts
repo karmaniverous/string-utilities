@@ -5,6 +5,13 @@ import { isStringifiable, type Stringifiable } from '../types';
  *
  * @param defaultValue - The default value.
  * @returns Tagged template function that returns `default` when any expression has no `toString` property.
+ *
+ * @example
+ * ```ts
+ * const value = sn2d`string: ${'foo'} number: ${42} boolean: ${true} null: ${null} undefined: ${undefined}`;
+ * // value === 'default'
+ * ```
+ *
  * @category Tagged Templates
  */
 export const sn2d =

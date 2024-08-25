@@ -3,6 +3,13 @@
  *
  * @param value - The string to normalize.
  * @returns The normalized string or undefined if not a string.
+ *
+ * @example
+ * ```ts
+ * const value = normstr('Við skulum fara á fjörðurinn í kvöld.');
+ * // value === 'viskulumfaraafjorurinnikvold'
+ * ```
+ *
  * @category Transformations
  */
 export const normstr = (value?: string) =>
