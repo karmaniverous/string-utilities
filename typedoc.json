@@ -1,5 +1,8 @@
 {
   "entryPoints": ["./src/index.ts"],
+  "navigation": {
+    "includeCategories": true
+  },
   "navigationLinks": {
     "@karmaniverous": "https://github.com/karmaniverous"
   },
