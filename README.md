@@ -1,4 +1,8 @@
-> [API Documentation](./docs/README.md)
+<!-- TYPEDOC_EXCLUDE -->
+
+> [API Documentation](https://karmaniverous.github.io/string-utilities) • [CHANGELOG](https://github.com/karmaniverous/string-utilities/tree/main/CHANGELOG.md)
+
+<!-- /TYPEDOC_EXCLUDE -->
 
 # string-utilities
 
@@ -6,5 +10,4 @@ Handy tagged templates & other string utilities.
 
 ---
 
-See more great templates and other tools on
-[my GitHub Profile](https://github.com/karmaniverous)!
+Built for you with ❤️ on Bali! Find more great tools & templates on [my GitHub Profile](https://github.com/karmaniverous).

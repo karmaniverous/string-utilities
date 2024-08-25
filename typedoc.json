@@ -1,17 +1,19 @@
 {
-  "$schema": "https://typedoc-plugin-markdown.org/schema.json",
-  "entryFileName": "README.md",
   "entryPoints": ["./src/index.ts"],
-  "enumMembersFormat": "table",
-  "expandObjects": true,
-  "gitRevision": "main",
-  "indexFormat": "table",
+  "navigationLinks": {
+    "@karmaniverous": "https://github.com/karmaniverous"
+  },
   "out": "./docs/",
-  "outputFileStrategy": "modules",
-  "parametersFormat": "table",
-  "plugin": ["typedoc-plugin-markdown"],
-  "propertiesFormat": "table",
-  "readme": "none",
-  "typeDeclarationFormat": "table",
-  "useCodeBlocks": true
+  "plugin": ["typedoc-plugin-replace-text"],
+  "projectDocuments": ["./CHANGELOG.md"],
+  "replaceText": {
+    "replacements": [
+      {
+        "pattern": "<!-- TYPEDOC_EXCLUDE -->.*?<!-- /TYPEDOC_EXCLUDE -->",
+        "flags": "gis",
+        "replace": ""
+      }
+    ]
+  },
+  "titleLink": "https://github.com/karmaniverous/string-utilities"
 }

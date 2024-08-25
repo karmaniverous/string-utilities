@@ -5,6 +5,7 @@
   },
   "description": "Handy tagged templates & other string utilities.",
   "devDependencies": {
+    "@dotenvx/dotenvx": "^1.10.2",
     "@eslint/js": "^9.9.0",
     "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-commonjs": "^26.0.1",
@@ -20,7 +21,6 @@
     "@types/node": "^20.16.1",
     "auto-changelog": "^2.4.0",
     "chai": "^5.1.1",
-    "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-mocha": "^10.5.0",
@@ -40,7 +40,7 @@
     "ts-node": "^10.9.2",
     "tslib": "^2.6.3",
     "typedoc": "^0.26.6",
-    "typedoc-plugin-markdown": "^4.2.5",
+    "typedoc-plugin-replace-text": "^4.0.0",
     "typescript": "^5.5.4",
     "typescript-eslint": "^7.18.0"
   },
@@ -81,7 +81,7 @@
   },
   "release-it": {
     "git": {
-      "changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/main/templates/changelog-compact.hbs",
+      "changelog": "npx auto-changelog --stdout --commit-limit false --unreleased --template https://raw.githubusercontent.com/release-it/release-it/main/templates/changelog-compact.hbs",
       "commitMessage": "chore: release v${version}",
       "requireBranch": "main"
     },
@@ -89,11 +89,14 @@
       "release": true
     },
     "hooks": {
+      "after:bump": "npx auto-changelog -p",
       "after:init": [
         "npm run lint",
         "npm run test",
         "npm run build",
-        "npm run docs"
+        "npm run docs",
+        "git add -A",
+        "git commit -m \"updated docs\""
       ],
       "after:release": [
         "git switch -c release/${version}",
@@ -115,9 +118,9 @@
     "knip": "knip",
     "lint": "eslint src/** && prettier -c src",
     "lint:fix": "eslint --fix src/** && prettier --write src",
-    "release": "release-it",
-    "release:pre": "release-it --no-git.requireBranch --github.prerelease --preRelease",
-    "test": "cross-env LOG_LEVEL=debug nyc mocha"
+    "release": "dotenvx run -f .env.local -- release-it",
+    "release:pre": "dotenvx run -f .env.local -- release-it --no-git.requireBranch --github.prerelease --preRelease",
+    "test": "dotenvx run --quiet --log-level=LOG_LEVEL=debug -- nyc mocha"
   },
   "type": "module",
   "types": "dist/index.d.ts",
