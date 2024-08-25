@@ -9,7 +9,7 @@ import { sn2d } from './sn2d';
  *
  * @example
  * ```ts
- * const value = sn2d`string: ${'foo'} number: ${42} boolean: ${true} null: ${null} undefined: ${undefined}`;
+ * const value = sn2u`string: ${'foo'} number: ${42} boolean: ${true} null: ${null} undefined: ${undefined}`;
  * // value === undefined
  * ```
  *
