@@ -1,7 +1,7 @@
 import { n2d } from './n2d';
 
 /**
- * Tagged template function **Non-stringifiable to Empty**: replaces expressions without toString property with empty strings.
+ * **Non-stringifiable to Empty String**: replaces expressions without toString property with empty strings.
  *
  * @param strings - The string literals.
  * @param exp - The expressions.

@@ -1,7 +1,7 @@
 import { isStringifiable, type Stringifiable } from '../types';
 
 /**
- * Tagged template meta-function **Some Non-stringifiable to Default**: returns tagged template function that returns a default value when any expression has no `toString` property.
+ * **Some Non-stringifiable to Default**: returns tagged template function that returns a default value when any expression has no `toString` property.
  *
  * @param defaultValue - The default value.
  * @returns Tagged template function that returns `default` when any expression has no `toString` property.
@@ -12,7 +12,7 @@ import { isStringifiable, type Stringifiable } from '../types';
  * // value === 'default'
  * ```
  *
- * @category Tagged Templates
+ * @category Higher-Order Functions
  */
 export const sn2d =
   (defaultValue: unknown) =>

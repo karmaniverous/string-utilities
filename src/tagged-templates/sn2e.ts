@@ -1,7 +1,7 @@
 import { sn2d } from './sn2d';
 
 /**
- * Tagged template function **Some Non-stringifiable to Empty**: returns empty string when any expression has no `toString` property.
+ * **Some Non-stringifiable to Empty String**: returns empty string when any expression has no `toString` property.
  *
  * @param strings - The string literals.
  * @param exp - The expressions.

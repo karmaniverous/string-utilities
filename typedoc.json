@@ -1,4 +1,10 @@
 {
+  "categoryOrder": [
+    "Types",
+    "Transformations",
+    "Tagged Templates",
+    "Higher-Order Functions"
+  ],
   "entryPoints": ["./src/index.ts"],
   "highlightLanguages": [
     "bash",
