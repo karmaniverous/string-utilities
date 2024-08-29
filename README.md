@@ -20,6 +20,8 @@ Contents:
 
   - [`Stringifiable`](https://karmanivero.us/string-utilities/types/index.Stringifiable.html) - Represents any value with a `toString` method.
 
+  - [`stringifiableZodSchema`](https://karmanivero.us/string-utilities/functions/index.stringifiableZodSchema.html) - Zod schema representing Stringifiable type.
+
   - [`isStringifiable`](https://karmanivero.us/string-utilities/functions/index.isStringifiable.html) - Returns `true` when value has `toString` method.
 
 - Transformations
