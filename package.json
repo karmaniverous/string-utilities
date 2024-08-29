@@ -124,8 +124,5 @@
   },
   "type": "module",
   "types": "dist/index.d.ts",
-  "version": "0.1.0",
-  "dependencies": {
-    "zod": "^3.23.8"
-  }
+  "version": "0.1.0"
 }

@@ -1,5 +1,1 @@
-export {
-  isStringifiable,
-  type Stringifiable,
-  stringifiableZodSchema,
-} from './Stringifiable';
+export { isStringifiable, type Stringifiable } from './Stringifiable';
