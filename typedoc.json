@@ -19,11 +19,9 @@
     "tsx",
     "typescript"
   ],
+  "hostedBaseUrl": "https://docs.karmanivero.us/string-utilities",
   "navigation": {
     "includeCategories": true
-  },
-  "navigationLinks": {
-    "@karmaniverous": "https://github.com/karmaniverous"
   },
   "out": "./docs/",
   "plugin": ["typedoc-plugin-replace-text"],
