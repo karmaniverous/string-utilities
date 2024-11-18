@@ -29,4 +29,7 @@ jobs:
           disable_base64: true
       - run: |
           echo "Syncing with ${{ steps.sync_dir.outputs.DESTINATION_FOLDER }}"
-          rclone sync . "gdrive:${{ steps.sync_dir.outputs.DESTINATION_FOLDER }}" -c --exclude ".git/**" --delete-excluded --combined
+          rclone sync . "gdrive:${{ steps.sync_dir.outputs.DESTINATION_FOLDER }}" -c \
+            --exclude ".git/**" \
+            --delete-excluded \
+            --combined "*/**"
