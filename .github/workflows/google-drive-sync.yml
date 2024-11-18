@@ -31,5 +31,4 @@ jobs:
           echo "Syncing with ${{ steps.sync_dir.outputs.DESTINATION_FOLDER }}"
           rclone sync . "gdrive:${{ steps.sync_dir.outputs.DESTINATION_FOLDER }}" -c \
             --exclude ".git/**" \
-            --delete-excluded \
-            --combined "*/**"
+            --delete-excluded
