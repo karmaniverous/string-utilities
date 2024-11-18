@@ -8,13 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0 # Ensure full history is fetched if needed
+      - name: Checkout Repo
+        uses: actions/checkout@v4
 
-      - name: Determine Backup Directory
-        id: backup_dir
+      - name: Determine Sync Directory
+        id: sync_dir
         run: |
           REPO_OWNER=$(echo "${GITHUB_REPOSITORY}" | cut -d'/' -f1)
           REPO_NAME=$(echo "${GITHUB_REPOSITORY}" | cut -d'/' -f2)
@@ -30,8 +28,8 @@ jobs:
             ${{ secrets.RCLONE_CONFIG }}
           disable_base64: true
       - run: |
-          echo "Creating destination folder: ${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}"
-          rclone mkdir "gdrive:${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}"
+          echo "Creating destination folder: ${{ steps.sync_dir.outputs.DESTINATION_FOLDER }}"
+          rclone mkdir "gdrive:${{ steps.sync_dir.outputs.DESTINATION_FOLDER }}"
 
-          echo "Syncing with ${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}"
-          rclone sync . "gdrive:${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}" -P
+          echo "Syncing with ${{ steps.sync_dir.outputs.DESTINATION_FOLDER }}"
+          rclone sync . "gdrive:${{ steps.sync_dir.outputs.DESTINATION_FOLDER }}" -P
