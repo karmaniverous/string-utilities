@@ -15,37 +15,26 @@ jobs:
         with:
           fetch-depth: 0 # Ensure full history is fetched if needed
 
-      - name: Set up rclone
-        uses: rclone/rclone-action@v2
-        with:
-          config: ${{ secrets.RCLONE_CONFIG }}
-
       - name: Determine Backup Directory
         id: backup_dir
         run: |
-          # Extract repository owner and name
           REPO_OWNER=$(echo "${GITHUB_REPOSITORY}" | cut -d'/' -f1)
           REPO_NAME=$(echo "${GITHUB_REPOSITORY}" | cut -d'/' -f2)
-          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
-
-          # Sanitize branch name to replace slashes with underscores
-          SANITIZED_BRANCH_NAME=$(echo "$BRANCH_NAME" | tr '/' '_')
-
-          # Define the destination folder
+          BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}" | tr '/' '_')
           DESTINATION_FOLDER="${REPO_OWNER}/${REPO_NAME}/${SANITIZED_BRANCH_NAME}"
 
           echo "DESTINATION_FOLDER=${DESTINATION_FOLDER}" >> $GITHUB_OUTPUT
 
-      - name: Upload Files to Google Drive
-        run: |
+      - name: Backup to Google Drive
+        uses: AnimMouse/setup-rclone@v1
+        with:
+          rclone_config: ${{ secrets.RCLONE_CONFIG }}
+      - run: |
           echo "Creating destination folder: ${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}"
           rclone mkdir "gdrive:${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}"
 
           echo "Uploading tracked files to ${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}"
-          rclone copy . "gdrive:${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}" \
-            --transfers=4 \
-            --checkers=8 \
-            --stats=16s
+          rclone copy . "gdrive:${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}" -P
 
       - name: Clean Up
         run: |
