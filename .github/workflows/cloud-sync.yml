@@ -1,0 +1,8 @@
+name: Cloud Sync
+
+on:
+  push:
+
+jobs:
+  scan:
+    uses: karmaniverous/gha-workflows/.github/workflows/cloud-sync.yml@main
