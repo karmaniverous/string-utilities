@@ -29,7 +29,7 @@ jobs:
         uses: AnimMouse/setup-rclone@v1
         with:
           rclone_config: |
-            echo "${{ secrets.RCLONE_CONFIG }}"
+            ${{ secrets.RCLONE_CONFIG }}
           disable_base64: true
       - run: |
           echo "Creating destination folder: ${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}"
