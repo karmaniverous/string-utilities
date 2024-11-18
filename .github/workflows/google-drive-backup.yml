@@ -28,7 +28,8 @@ jobs:
       - name: Backup to Google Drive
         uses: AnimMouse/setup-rclone@v1
         with:
-          rclone_config: ${{ secrets.RCLONE_CONFIG }}
+          rclone_config: |
+            echo "${{ secrets.RCLONE_CONFIG }}"
       - run: |
           echo "Creating destination folder: ${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}"
           rclone mkdir "gdrive:${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}"
