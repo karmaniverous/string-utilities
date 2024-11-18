@@ -28,8 +28,5 @@ jobs:
             ${{ secrets.RCLONE_CONFIG }}
           disable_base64: true
       - run: |
-          echo "Creating destination folder: ${{ steps.sync_dir.outputs.DESTINATION_FOLDER }}"
-          rclone mkdir "gdrive:${{ steps.sync_dir.outputs.DESTINATION_FOLDER }}"
-
           echo "Syncing with ${{ steps.sync_dir.outputs.DESTINATION_FOLDER }}"
-          rclone sync . "gdrive:${{ steps.sync_dir.outputs.DESTINATION_FOLDER }}" -P
+          rclone sync . "gdrive:${{ steps.sync_dir.outputs.DESTINATION_FOLDER }}" -P -c
