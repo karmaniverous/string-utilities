@@ -1,9 +1,7 @@
-name: Backup npm Project to Google Drive
+name: Backup Repo to Google Drive
 
 on:
   push:
-    branches:
-      - main # Change to your default branch if different
 
 jobs:
   backup:
