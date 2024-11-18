@@ -7,4 +7,4 @@ jobs:
   sync:
     uses: karmaniverous/gha-workflows/.github/workflows/cloud-sync.yml@main
     with:
-      rclone_config: ${{ secrets.RCLONE_CONFIG }}
+      rclone_config: secrets.RCLONE_CONFIG
