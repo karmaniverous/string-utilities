@@ -1,4 +1,4 @@
-name: Backup Repo to Google Drive
+name: Sync Repo with Google Drive
 
 on:
   push:
@@ -23,7 +23,7 @@ jobs:
 
           echo "DESTINATION_FOLDER=${DESTINATION_FOLDER}" >> $GITHUB_OUTPUT
 
-      - name: Backup to Google Drive
+      - name: Sync with Google Drive
         uses: AnimMouse/setup-rclone@v1
         with:
           rclone_config: |
@@ -33,9 +33,5 @@ jobs:
           echo "Creating destination folder: ${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}"
           rclone mkdir "gdrive:${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}"
 
-          echo "Uploading tracked files to ${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}"
-          rclone copy . "gdrive:${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}" -P
-
-      - name: Clean Up
-        run: |
-          echo "Backup completed and uploaded to Google Drive."
+          echo "Syncing with ${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}"
+          rclone sync . "gdrive:${{ steps.backup_dir.outputs.DESTINATION_FOLDER }}" -P
