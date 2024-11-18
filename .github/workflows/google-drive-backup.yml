@@ -21,7 +21,7 @@ jobs:
           REPO_OWNER=$(echo "${GITHUB_REPOSITORY}" | cut -d'/' -f1)
           REPO_NAME=$(echo "${GITHUB_REPOSITORY}" | cut -d'/' -f2)
           BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}" | tr '/' '_')
-          DESTINATION_FOLDER="${REPO_OWNER}/${REPO_NAME}/${SANITIZED_BRANCH_NAME}"
+          DESTINATION_FOLDER="${REPO_OWNER}/${REPO_NAME}/${BRANCH_NAME}"
 
           echo "DESTINATION_FOLDER=${DESTINATION_FOLDER}" >> $GITHUB_OUTPUT
 
