@@ -1,6 +1,11 @@
 {
-  "entryPoints": ["./src"],
-  "excludeInternal": false,
+  "categoryOrder": [
+    "Types",
+    "Transformations",
+    "Tagged Templates",
+    "Higher-Order Functions"
+  ],
+  "entryPoints": ["./src/index.ts"],
   "highlightLanguages": [
     "bash",
     "console",
@@ -18,13 +23,14 @@
   ],
   "hostedBaseUrl": "https://docs.karmanivero.us/string-utilities",
   "navigation": {
-    "excludeReferences": true
+    "includeCategories": true
   },
   "navigationLinks": {
     "GitHub": "https://github.com/karmaniverous/string-utilities"
   },
   "out": "./docs/",
   "plugin": ["typedoc-plugin-mdn-links", "typedoc-plugin-replace-text"],
+  "projectDocuments": ["./CHANGELOG.md"],
   "replaceText": {
     "replacements": [
       {

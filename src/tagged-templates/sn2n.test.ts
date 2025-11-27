@@ -1,5 +1,3 @@
-/* eslint-env mocha */
-
 import { sn2n } from './sn2n';
 
 describe('sn2n', function () {
