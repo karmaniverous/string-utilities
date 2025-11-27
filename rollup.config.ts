@@ -6,9 +6,12 @@ import commonjsPlugin from '@rollup/plugin-commonjs';
 import jsonPlugin from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import stripPlugin from '@rollup/plugin-strip';
+import terserPlugin from '@rollup/plugin-terser';
 import typescriptPlugin from '@rollup/plugin-typescript';
-import type { InputOptions, RollupOptions } from 'rollup';
+import type { InputOptions, OutputOptions, RollupOptions } from 'rollup';
 import dtsPlugin from 'rollup-plugin-dts';
+
+import { packageName } from './src/util/packageName';
 
 const pkg = JSON.parse(
   readFileSync(new URL('./package.json', import.meta.url), 'utf8'),
@@ -38,6 +41,10 @@ const commonInputOptions: InputOptions = {
   plugins: [aliasPlugin({ entries: commonAliases }), ...commonPlugins],
 };
 
+const iifeCommonOutputOptions: OutputOptions = {
+  name: packageName ?? 'unknown',
+};
+
 const config: RollupOptions[] = [
   // ESM output.
   {
@@ -48,6 +55,27 @@ const config: RollupOptions[] = [
         extend: true,
         format: 'esm',
         preserveModules: true,
+      },
+    ],
+  },
+
+  // IIFE output.
+  {
+    ...commonInputOptions,
+    plugins: [aliasPlugin({ entries: commonAliases }), ...commonPlugins],
+    output: [
+      {
+        ...iifeCommonOutputOptions,
+        extend: true,
+        file: `${outputPath}/index.iife.js`,
+        format: 'iife',
+      },
+      {
+        ...iifeCommonOutputOptions,
+        extend: true,
+        file: `${outputPath}/index.iife.min.js`,
+        format: 'iife',
+        plugins: [terserPlugin()],
       },
     ],
   },

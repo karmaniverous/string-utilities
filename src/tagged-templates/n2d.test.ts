@@ -1,6 +1,4 @@
-/* eslint-env mocha */
-
-import { expect } from 'chai';
+import { describe, expect, it } from 'vitest';
 
 import { n2d } from './n2d';
 

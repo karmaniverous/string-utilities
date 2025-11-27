@@ -18,23 +18,11 @@ const vitestRecommendedRules = (
 export default defineConfig([
   // Global ignores (keep ESLint away from build/cache JS)
   {
-    ignores: [
-      'coverage/**/*',
-      'dist/**/*',
-      'docs/**/*',
-      '.rollup.cache/**/*',
-      '**/*.js',
-      'test/types/**/*',
-    ],
+    ignores: ['coverage/**/*', 'dist/**/*', 'docs/**/*', '.rollup.cache/**/*'],
   },
-  // Base + strict type-checked rules
+  // Strict, type-aware rules for all TS (including configs and tests)
   {
-    files: [
-      'src/**/*.ts',
-      'test/**/*.ts',
-      'rollup.config.ts',
-      'vitest.config.ts',
-    ],
+    files: ['**/*.ts'],
     extends: [
       eslint.configs.recommended,
       ...tseslint.configs.strictTypeChecked,
@@ -53,6 +41,7 @@ export default defineConfig([
       prettier: prettierPlugin,
     },
     rules: {
+      '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-non-null-assertion': 'off',
       '@typescript-eslint/no-unused-expressions': 'off',
       '@typescript-eslint/no-unused-vars': 'error',
@@ -61,30 +50,21 @@ export default defineConfig([
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
       'tsdoc/syntax': 'warn',
-      '@typescript-eslint/unified-signatures': 'off',
     },
   },
-  // Lint the config itself without type-aware rules to avoid upstream rule crash
+  // JS files (configs, scripts)
   {
-    files: ['eslint.config.ts'],
+    files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
     extends: [eslint.configs.recommended, prettierConfig],
-    languageOptions: {
-      parser: tseslint.parser,
-      parserOptions: {
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
     plugins: {
       'simple-import-sort': simpleImportSortPlugin,
-      tsdoc: tsDocPlugin,
       prettier: prettierPlugin,
     },
     rules: {
       'prettier/prettier': 'error',
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
-      'tsdoc/syntax': 'warn',
-      'no-unused-vars': 'off',
+      'no-unused-vars': 'error',
     },
   },
   // Vitest rules and globals for test files

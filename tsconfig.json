@@ -10,21 +10,18 @@
     "moduleResolution": "Bundler",
     "noEmit": true,
     "baseUrl": ".",
-    "paths": {
-      "@karmaniverous/entity-client-dynamodb": ["dist/index.d.ts"]
-    },
     "resolveJsonModule": true,
     "strict": true,
     "target": "ES2020",
     "tsBuildInfoFile": "./.tsbuildinfo",
     "types": ["node", "vitest/globals"]
   },
-  "exclude": ["coverage/", "dist/", "docs/", "tests/**", "test/types/**"],
+  "exclude": ["coverage/", "dist/", "docs/", "test/types/**"],
   "include": [
     "src/**/*.ts",
     "test/**/*.ts",
     "eslint.config.ts",
-    "rollup.config.ts.old",
+    "rollup.config.ts",
     "vitest.config.ts"
   ]
 }
