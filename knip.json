@@ -1,0 +1,9 @@
+{
+  "entry": ["src/**/index.ts"],
+  "ignore": [".stan/imports/**"],
+  "project": ["*/**", "!docs/**"],
+  "rules": {
+    "exports": "off",
+    "types": "off"
+  }
+}

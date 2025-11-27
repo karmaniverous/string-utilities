@@ -1,11 +1,6 @@
 {
-  "categoryOrder": [
-    "Types",
-    "Transformations",
-    "Tagged Templates",
-    "Higher-Order Functions"
-  ],
-  "entryPoints": ["./src/index.ts"],
+  "entryPoints": ["./src"],
+  "excludeInternal": false,
   "highlightLanguages": [
     "bash",
     "console",
@@ -17,23 +12,28 @@
     "json5",
     "md",
     "tsx",
-    "typescript"
+    "typescript",
+    "yaml",
+    "yml"
   ],
   "hostedBaseUrl": "https://docs.karmanivero.us/string-utilities",
   "navigation": {
-    "includeCategories": true
+    "excludeReferences": true
+  },
+  "navigationLinks": {
+    "GitHub": "https://github.com/karmaniverous/string-utilities"
   },
   "out": "./docs/",
-  "plugin": ["typedoc-plugin-replace-text"],
-  "projectDocuments": ["./CHANGELOG.md"],
+  "plugin": ["typedoc-plugin-mdn-links", "typedoc-plugin-replace-text"],
   "replaceText": {
     "replacements": [
       {
-        "pattern": "<!-- TYPEDOC_EXCLUDE -->.*?<!-- /TYPEDOC_EXCLUDE -->",
         "flags": "gis",
+        "pattern": "<!-- TYPEDOC_EXCLUDE -->.*?<!-- /TYPEDOC_EXCLUDE -->",
         "replace": ""
       }
     ]
   },
-  "titleLink": "https://github.com/karmaniverous/string-utilities"
+  "searchInComments": true,
+  "searchInDocuments": true
 }
