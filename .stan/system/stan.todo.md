@@ -25,4 +25,5 @@
   - Removed stray paths alias.
 - Dependency hygiene:
   - Added @rollup/plugin-terser.
-  - Removed unused devDependencies: cross-env, ts-node.
+  - Removed unused devDependencies: ts-node.
+  - Added @vitest/coverage-v8 for coverage provider "v8".

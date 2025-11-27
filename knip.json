@@ -1,6 +1,7 @@
 {
   "entry": ["src/**/index.ts"],
   "ignore": [".stan/imports/**"],
+  "ignoreDependencies": ["cross-env"],
   "project": ["*/**", "!docs/**"],
   "rules": {
     "exports": "off",

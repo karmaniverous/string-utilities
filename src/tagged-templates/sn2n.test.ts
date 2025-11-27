@@ -1,7 +1,5 @@
 /* eslint-env mocha */
 
-import { expect } from 'chai';
-
 import { sn2n } from './sn2n';
 
 describe('sn2n', function () {
