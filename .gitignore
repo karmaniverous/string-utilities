@@ -8,3 +8,4 @@ coverage/
 dist/
 esm/
 node_modules/
+docs/
