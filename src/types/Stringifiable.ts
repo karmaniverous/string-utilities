@@ -4,12 +4,7 @@
  * @category Types
  */
 export type Stringifiable =
-  | string
-  | number
-  | boolean
-  | bigint
-  | symbol
-  | object;
+  string | number | boolean | bigint | symbol | object;
 
 /**
  * Returns `true` when `value` has `toString` method.
